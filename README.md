@@ -113,6 +113,6 @@ go get github.com/charlysan/go-polymorphic-shapes
 And then you can build it and run it like this:
 
 ```bash
-cd $GOPATH/github.com/charlysan/go-polymorphic-shapes
+cd $GOPATH/src/github.com/charlysan/go-polymorphic-shapes
 go run main.go
 ```
