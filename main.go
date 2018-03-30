@@ -14,37 +14,37 @@ type Shaper interface {
 }
 
 type Rectangle struct {
-	l float32
-	w float32
+	length float32
+	width  float32
 }
 
 func (r Rectangle) Area() float32 {
-	return r.l * r.w
+	return r.length * r.width
 }
 
 func (r Rectangle) Perimeter() float32 {
-	return 2 * (r.l + r.w)
+	return 2 * (r.length + r.width)
 }
 
 func (r Rectangle) Dimensions() string {
-	return fmt.Sprintf("length %.2f cm and width %.2f cm", r.l, r.w)
+	return fmt.Sprintf("length %.2f cm and width %.2f cm", r.length, r.width)
 }
 
 type Circle struct {
-	r float32
+	radius float32
 }
 
 func (c Circle) Area() float32 {
-	return math.Pi * c.r * c.r
+	return math.Pi * c.radius * c.radius
 
 }
 
 func (c Circle) Perimeter() float32 {
-	return 2 * math.Pi * c.r
+	return 2 * math.Pi * c.radius
 }
 
 func (c Circle) Dimensions() string {
-	return fmt.Sprintf("radius %.2f cm", c.r)
+	return fmt.Sprintf("radius %.2f cm", c.radius)
 }
 
 func calculateArea(s Shaper) float32 {
@@ -64,7 +64,6 @@ func main() {
 	c := Circle{1}
 
 	shapesCollection := []Shaper{s, c}
-	shapesCollection = append(shapesCollection, Rectangle{1, 4})
 
 	for _, shape := range shapesCollection {
 		fmt.Printf(
