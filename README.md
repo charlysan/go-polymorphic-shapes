@@ -31,7 +31,7 @@ type Circle struct {
 }
 ```
 
-And you make the implement `Shape` interface. In Go, you don't need to explicitly set that a type implements an interface like in JAVA or C++; you just have to implement the methods defined within the interface:
+And you make them implement `Shape` interface. In Go, you don't need to explicitly set that a type implements an interface like in JAVA or C++; you just have to implement the methods defined within the interface:
 
 ```go
 // Rectangle Shape implementation:
@@ -63,7 +63,7 @@ func (c Circle) Dimensions() string {
 }
 ```
 
-Then you create a rectangle of 2x3 and and a circle of radio 1:
+Then you create, for example, a rectangle of 2x3 and and a circle of radio 1:
 
 ```go
 s := Rectangle{2, 3}
@@ -113,6 +113,6 @@ go get github.com/charlysan/go-polymorphic-shapes
 And then you can build it and run it like this:
 
 ```bash
-cd $GOPATH/github.com/charlysan/go-polymorphic-shapes
+cd $GOPATH/src/github.com/charlysan/go-polymorphic-shapes
 go run main.go
 ```
