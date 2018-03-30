@@ -6,8 +6,8 @@ import (
 	"reflect"
 )
 
-// Shaper defines method signatures for shapes
-type Shaper interface {
+// Shape defines method signatures for shapes
+type Shape interface {
 	Area() float32
 	Perimeter() float32
 	Dimensions() string
@@ -36,7 +36,6 @@ type Circle struct {
 
 func (c Circle) Area() float32 {
 	return math.Pi * c.radius * c.radius
-
 }
 
 func (c Circle) Perimeter() float32 {
@@ -47,31 +46,19 @@ func (c Circle) Dimensions() string {
 	return fmt.Sprintf("radius %.2f cm", c.radius)
 }
 
-func calculateArea(s Shaper) float32 {
-	return s.Area()
-}
-
-func calculatePerimeter(s Shaper) float32 {
-	return s.Perimeter()
-}
-
-func displayDimensions(s Shaper) string {
-	return s.Dimensions()
-}
-
 func main() {
 	s := Rectangle{2, 3}
 	c := Circle{1}
 
-	shapesCollection := []Shaper{s, c}
+	shapesCollection := []Shape{s, c}
 
 	for _, shape := range shapesCollection {
 		fmt.Printf(
 			"A %s of %s has an area of %.2f cm2 and a perimeter of %.2f cm.\n",
 			reflect.TypeOf(shape).Name(),
-			displayDimensions(shape),
-			calculateArea(shape),
-			calculatePerimeter(shape),
+			shape.Dimensions(),
+			shape.Area(),
+			shape.Perimeter(),
 		)
 	}
 }
