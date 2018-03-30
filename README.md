@@ -12,9 +12,9 @@ First you need to define some method signatures within an `interface` that it wi
 
 ```go
 type Shape interface {
-	Area() float32
-	Perimeter() float32
-	Dimensions() string
+   Area() float32
+   Perimeter() float32
+   Dimensions() string
 }
 ```
 
@@ -22,12 +22,12 @@ Then you define `Circle` and `Rectagle` types:
 
 ```go
 type Rectangle struct {
-	length float32
-	width  float32
+   length float32
+   width  float32
 }
 
 type Circle struct {
-	radius float32
+   radius float32
 }
 ```
 
@@ -36,30 +36,30 @@ And you make the implement `Shape` interface. In Go, you don't need to explicitl
 ```go
 // Rectangle Shape implementation:
 func (r Rectangle) Area() float32 {
-	return r.length * r.width
+   return r.length * r.width
 }
 
 func (r Rectangle) Perimeter() float32 {
-	return 2 * (r.length + r.width)
+   return 2 * (r.length + r.width)
 }
 
 func (r Rectangle) Dimensions() string {
-	return fmt.Sprintf("length %.2f cm and width %.2f cm", r.length, r.width)
+   return fmt.Sprintf("length %.2f cm and width %.2f cm", r.length, r.width)
 }
 ```
 
 ```go
 // Circle Shape implementation:
 func (c Circle) Area() float32 {
-	return math.Pi * c.radius * c.radius
+   return math.Pi * c.radius * c.radius
 }
 
 func (c Circle) Perimeter() float32 {
-	return 2 * math.Pi * c.radius
+   return 2 * math.Pi * c.radius
 }
 
 func (c Circle) Dimensions() string {
-	return fmt.Sprintf("radius %.2f cm", c.radius)
+   return fmt.Sprintf("radius %.2f cm", c.radius)
 }
 ```
 
@@ -85,14 +85,14 @@ That should return the rectangle area. You could also put both shapes within a c
 shapesCollection := []Shape{s, c}
 
 for _, shape := range shapesCollection {
-		fmt.Printf(
-			"A %s of %s has an area of %.2f cm2 and a perimeter of %.2f cm.\n",
-			reflect.TypeOf(shape).Name(),
-			shape.Dimensions(),
-			shape.Area(),
-			shape.Perimeter(),
-		)
-	}
+      fmt.Printf(
+         "A %s of %s has an area of %.2f cm2 and a perimeter of %.2f cm.\n",
+         reflect.TypeOf(shape).Name(),
+         shape.Dimensions(),
+         shape.Area(),
+         shape.Perimeter(),
+      )
+   }
 ```
 
 That should produce this output:
@@ -113,6 +113,6 @@ go get github.com/charlysan/go-polymorphic-shapes
 And then you can build it and run it like this:
 
 ```bash
-cd $GOPATH/src/github.com/charlysan/go-polymorphic-shapes
+cd $GOPATH/github.com/charlysan/go-polymorphic-shapes
 go run main.go
 ```
