@@ -8,7 +8,7 @@ Polymorphism in GO can be achieved using [Interfaces](https://golang.org/ref/spe
 
 Suppose you have a type `Rectangle` and `Circle` that implements a `Shape` type behaviour. If you have an object `shape` of type `Shape` and you do `shape.area()` you want to get the right value whereas `shape` is a `Rectangle` or a `Circle`. Each of them will have a different implementation, but you don't care about that; you just want to get the right area calculation for that shape.
 
-First you need to define some method signatures within an `interface` that it will be called `Shape`:
+First you need to define some method signatures within an `interface` that will be called `Shape`:
 
 ```go
 type Shape interface {
